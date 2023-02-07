@@ -7,19 +7,18 @@
 	<meta name="description" content="Doctors simple dashboard">
 	<meta name="author" content="Shah Alam">
 
-
 	<title>DOC KIT</title>
 	<link rel="stylesheet"
 		href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
-	<link rel="stylesheet" href="assets/vandor/bootstrap-4.1.1/css/bootstrap.min.css">
-	<!-- <link rel="stylesheet" href="assets/vandor/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css"> -->
-	<link rel="stylesheet" href="assets/vandor/bootstrap-datepicker/css/bootstrap-datepicker.min.css">
-	<link rel="stylesheet" href="assets/vandor/bootstrap-timepicker/css/bootstrap-timepicker.css">
-	<link rel="stylesheet" href="assets/vandor/fullcalendar-3.10.0/fullcalendar.css">
-	<link rel="stylesheet" href="assets/vandor/dropzone/basic.css">
-	<link rel="stylesheet" href="assets/vandor/dropzone/dropzone.css">
-	<link rel="stylesheet" href="assets/css/style.css">
-	<link rel="stylesheet" href="assets/vandor/fontawesome/css/all.min.css">
+	<link rel="stylesheet" href="../assets/vandor/bootstrap-4.1.1/css/bootstrap.min.css">
+	<!-- <link rel="stylesheet" href="../assets/vandor/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css"> -->
+	<link rel="stylesheet" href="../assets/vandor/bootstrap-datepicker/css/bootstrap-datepicker.min.css">
+	<link rel="stylesheet" href="../assets/vandor/bootstrap-timepicker/css/bootstrap-timepicker.css">
+	<link rel="stylesheet" href="../assets/vandor/fullcalendar-3.10.0/fullcalendar.css">
+	<link rel="stylesheet" href="../assets/vandor/dropzone/basic.css">
+	<link rel="stylesheet" href="../assets/vandor/dropzone/dropzone.css">
+	<link rel="stylesheet" href="../assets/css/style.css">
+	<link rel="stylesheet" href="../assets/vandor/fontawesome/css/all.min.css">
 </head>
 
 <body>
@@ -27,7 +26,7 @@
 		<div class="main-header">
 			<div class="logo-header">
 				<a href="dashboard.html" class="logo">
-					<img src="assets/img/logo.png" alt="logo" class="img-fluid">
+					<img src="../assets/img/logo.png" alt="logo" class="img-fluid">
 				</a>
 				<button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse"
 					data-target="collapse" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle navigation">
@@ -153,7 +152,7 @@
 						</a>
 					</li>
 					<li class="nav-item d-block d-md-none">
-						<a href="index.html">
+						<a href="../index.html">
 							<span class="doc-icon-logout doc-icon-size-2 doc-icon-bg-gray"></span>
 							<p>Log Out</p>
 						</a>
@@ -164,7 +163,7 @@
 						<span class="doc-icon-desktop doc-icon-size-2 doc-icon-bg-gray"></span>
 						<span>View Website</span>
 					</a><br>
-					<a href="index.html">
+					<a href="../index.html">
 						<span class="doc-icon-logout doc-icon-size-2 doc-icon-bg-gray"></span>
 						<span>Log Out</span>
 					</a>
@@ -173,12 +172,12 @@
 		</div>
 		<div class="main-panel">
 			<div class="content">
-				<div class="container-fluid">
+				<div class="container-fluid doc-dashboard">
 					<div class="row">
-						<div class="col-sm-12 col-md-12 bg-white data-main-content">
+						<div class="col-sm-12 col-md-9 bg-white data-main-content">
 							<div class="row data-header">
 								<div class="col-6">
-									<h4>All Reviews</h4>
+									<h4>Recent Patients</h4>
 								</div>
 								<div class="col-6 text-right">
 									<div class="btn-group dropdown-wrap">
@@ -199,65 +198,199 @@
 								</div>
 							</div>
 
-							<table class="table table-borderless mt-2 table_responsive" id="table">
+							<table class="table table-borderless mt-2 table_responsive recent-patients" id="table"
+								style="font-size:16px!important;">
 								<thead>
 									<tr>
 										<th scope="col">Sr. No</th>
 										<th scope="col" abbr="date">Date</th>
+										<th scope="col" abbr="time">Time</th>
 										<th scope="col" abbr="name">Name</th>
-										<th scope="col">Review</th>
-										<th scope="col">Action</th>
+										<th scope="col" abbr="contact">Contact</th>
+										<th scope="col" class="text-center">Prescription</th>
+										<th scope="col">Remark</th>
 									</tr>
 								</thead>
 								<tbody>
 									<tr class="bg-default">
 										<td>1</td>
 										<td>28 July, 2019</td>
-										<td><a href="#"><a href="#" class="details-link" data-toggle="modal"
-													data-target="#profile"><span class="text-primary">Saifullah Al
-														Amin</span></a></td>
+										<td>12:00 PM</td>
+										<td><a href="#" data-toggle="modal" data-target="#profile"><span
+													class="text-primary">Saifullah Al Amin</span></a></td>
+										<td><a href="tel:01234567891"><i class="fas fa-phone-alt text-primary"></i></a>
+											01234567891</td>
+										<td class="text-center"><a href="#" data-toggle="modal"
+												data-target="#prescriptions"><i class="fas fa-plus-circle"></i></a></td>
+										<td>Visited</td>
 										<td>
-											<p>morbi ultricies est at metus <a href="#" class="details-link"
-													data-toggle="modal" data-target="#feedback">[.....]</a></p>
+											<a href="#" data-toggle="modal" data-target="#appointmentEditActionModal"
+												class="ml-2">
+												<i class="fas fa-pencil-alt text-primary"></i>
+											</a>
 										</td>
-										<td>Declined</td>
 									</tr>
 									<tr class="bg-default">
 										<td>2</td>
 										<td>28 July, 2019</td>
-										<td><a href="#"><a href="#" class="details-link" data-toggle="modal"
-													data-target="#profile"><span class="text-primary">Saifullah Al
-														Amin</span></a></td>
+										<td>12:00 PM</td>
+										<td><a href="#" data-toggle="modal" data-target="#profile"><span
+													class="text-primary">Saifullah Al Amin</span></a></td>
+										<td><a href="tel:01234567891"><i class="fas fa-phone-alt text-primary"></i></a>
+											01234567891</td>
+										<td class="text-center"><a href="#" data-toggle="modal"
+												data-target="#printPrescriptions"><i class="fas fa-eye"></i></a></td>
+										<td>Not visited</td>
 										<td>
-											<p>morbi ultricies est at metus <a href="#" class="details-link"
-													data-toggle="modal" data-target="#feedback">[.....]</a></p>
+											<a href="#" data-toggle="modal" data-target="#appointmentEditActionModal"
+												class="ml-2">
+												<i class="fas fa-pencil-alt text-primary"></i>
+											</a>
 										</td>
-										<td>Approved</td>
 									</tr>
 									<tr class="bg-default">
 										<td>3</td>
 										<td>28 July, 2019</td>
-										<td><a href="#"><a href="#" class="details-link" data-toggle="modal"
-													data-target="#profile"><span class="text-primary">Saifullah Al
-														Amin</span></a></td>
+										<td>12:00 PM</td>
+										<td><a href="#" data-toggle="modal" data-target="#profile"><span
+													class="text-primary">Saifullah Al Amin</span></a></td>
+										<td><a href="tel:01234567891"><i class="fas fa-phone-alt text-primary"></i></a>
+											01234567891</td>
+										<td class="text-center"><a href="#" data-toggle="modal"
+												data-target="#prescriptions"><i class="fas fa-plus-circle"></i></a></td>
+										<td>Visited</td>
 										<td>
-											<p>morbi ultricies est at metus <a href="#" class="details-link"
-													data-toggle="modal" data-target="#feedback">[.....]</a></p>
+											<a href="#" data-toggle="modal" data-target="#appointmentEditActionModal"
+												class="ml-2">
+												<i class="fas fa-pencil-alt text-primary"></i>
+											</a>
 										</td>
-										<td>Approved</td>
 									</tr>
-
+									<tr class="bg-default">
+										<td>2</td>
+										<td>28 July, 2019</td>
+										<td>12:00 PM</td>
+										<td><a href="#" data-toggle="modal" data-target="#profile"><span
+													class="text-primary">Saifullah Al Amin</span></a></td>
+										<td><a href="tel:01234567891"><i class="fas fa-phone-alt text-primary"></i></a>
+											01234567891</td>
+										<td class="text-center"><a href="#" data-toggle="modal"
+												data-target="#printPrescriptions"><i class="fas fa-eye"></i></a></td>
+										<td>Visited</td>
+										<td>
+											<a href="#" data-toggle="modal" data-target="#appointmentEditActionModal"
+												class="ml-2">
+												<i class="fas fa-pencil-alt text-primary"></i>
+											</a>
+										</td>
+									</tr>
 									<tr class="bg-default">
 										<td>3</td>
 										<td>28 July, 2019</td>
-										<td><a href="#"><a href="#" class="details-link" data-toggle="modal"
-													data-target="#profile"><span class="text-primary">Saifullah Al
-														Amin</span></a></td>
+										<td>12:00 PM</td>
+										<td><a href="#" data-toggle="modal" data-target="#profile"><span
+													class="text-primary">Saifullah Al Amin</span></a></td>
+										<td><a href="tel:01234567891"><i class="fas fa-phone-alt text-primary"></i></a>
+											01234567891</td>
+										<td class="text-center"><a href="#" data-toggle="modal"
+												data-target="#prescriptions"><i class="fas fa-plus-circle"></i></a></td>
+										<td>Not visited</td>
 										<td>
-											<p>morbi ultricies est at metus <a href="#" class="details-link"
-													data-toggle="modal" data-target="#feedback">[.....]</a></p>
+											<a href="#" data-toggle="modal" data-target="#appointmentEditActionModal"
+												class="ml-2">
+												<i class="fas fa-pencil-alt text-primary"></i>
+											</a>
 										</td>
-										<td>Pending</td>
+									</tr>
+									<tr class="bg-default">
+										<td>2</td>
+										<td>28 July, 2019</td>
+										<td>12:00 PM</td>
+										<td><a href="#" data-toggle="modal" data-target="#profile"><span
+													class="text-primary">Saifullah Al Amin</span></a></td>
+										<td><a href="tel:01234567891"><i class="fas fa-phone-alt text-primary"></i></a>
+											01234567891</td>
+										<td class="text-center"><a href="#" data-toggle="modal"
+												data-target="#printPrescriptions"><i class="fas fa-eye"></i></a></td>
+										<td>Visited</td>
+										<td>
+											<a href="#" data-toggle="modal" data-target="#appointmentEditActionModal"
+												class="ml-2">
+												<i class="fas fa-pencil-alt text-primary"></i>
+											</a>
+										</td>
+									</tr>
+									<tr class="bg-default">
+										<td>3</td>
+										<td>28 July, 2019</td>
+										<td>12:00 PM</td>
+										<td><a href="#" data-toggle="modal" data-target="#profile"><span
+													class="text-primary">Saifullah Al Amin</span></a></td>
+										<td><a href="tel:01234567891"><i class="fas fa-phone-alt text-primary"></i></a>
+											01234567891</td>
+										<td class="text-center"><a href="#" data-toggle="modal"
+												data-target="#prescriptions"><i class="fas fa-plus-circle"></i></a></td>
+										<td>Not visited</td>
+										<td>
+											<a href="#" data-toggle="modal" data-target="#appointmentEditActionModal"
+												class="ml-2">
+												<i class="fas fa-pencil-alt text-primary"></i>
+											</a>
+										</td>
+									</tr>
+									<tr class="bg-default">
+										<td>2</td>
+										<td>28 July, 2019</td>
+										<td>12:00 PM</td>
+										<td><a href="#" data-toggle="modal" data-target="#profile"><span
+													class="text-primary">Saifullah Al Amin</span></a></td>
+										<td><a href="tel:01234567891"><i class="fas fa-phone-alt text-primary"></i></a>
+											01234567891</td>
+										<td class="text-center"><a href="#" data-toggle="modal"
+												data-target="#printPrescriptions"><i class="fas fa-eye"></i></a></td>
+										<td>Visited</td>
+										<td>
+											<a href="#" data-toggle="modal" data-target="#appointmentEditActionModal"
+												class="ml-2">
+												<i class="fas fa-pencil-alt text-primary"></i>
+											</a>
+										</td>
+									</tr>
+									<tr class="bg-default">
+										<td>3</td>
+										<td>28 July, 2019</td>
+										<td>12:00 PM</td>
+										<td><a href="#" data-toggle="modal" data-target="#profile"><span
+													class="text-primary">Saifullah Al Amin</span></a></td>
+										<td><a href="tel:01234567891"><i class="fas fa-phone-alt text-primary"></i></a>
+											01234567891</td>
+										<td class="text-center"><a href="#" data-toggle="modal"
+												data-target="#prescriptions"><i class="fas fa-plus-circle"></i></a></td>
+										<td>Not visited</td>
+										<td>
+											<a href="#" data-toggle="modal" data-target="#appointmentEditActionModal"
+												class="ml-2">
+												<i class="fas fa-pencil-alt text-primary"></i>
+											</a>
+										</td>
+									</tr>
+									<tr class="bg-default">
+										<td>2</td>
+										<td>28 July, 2019</td>
+										<td>12:00 PM</td>
+										<td><a href="#" data-toggle="modal" data-target="#profile"><span
+													class="text-primary">Saifullah Al Amin</span></a></td>
+										<td><a href="tel:01234567891"><i class="fas fa-phone-alt text-primary"></i></a>
+											01234567891</td>
+										<td class="text-center"><a href="#" data-toggle="modal"
+												data-target="#printPrescriptions"><i class="fas fa-eye"></i></a></td>
+										<td>Visited</td>
+										<td>
+											<a href="#" data-toggle="modal" data-target="#appointmentEditActionModal"
+												class="ml-2">
+												<i class="fas fa-pencil-alt text-primary"></i>
+											</a>
+										</td>
 									</tr>
 								</tbody>
 							</table>
@@ -265,11 +398,113 @@
 								<a href=""><span>See All</span> <i class="fas fa-arrow-right"></i></a>
 							</div>
 						</div>
+						<div class="col-sm-12 col-md-3 pr-0 order-first order-md-12">
+							<div class="d-flex align-items-end flex-column">
+								<div class="widget">
+									<div class="card">
+										<div class="card-header p-0 m-0 d-md-block d-none">
+											<p>Pending Appointments</p>
+										</div>
+										<div class="card-body bg-success">
+											<div class="row">
+												<div class="col-5">
+													<div class="icon-big text-center text-success">
+														<i class="fas fa-hourglass-half"></i>
+													</div>
+												</div>
+												<div class="col-7 d-flex align-items-center">
+													<div class="numbers">
+														<h4>27</h4>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="widget">
+									<div class="card">
+										<div class="card-header p-0 m-0 d-md-block d-none">
+											<p>Today's Appointments</p>
+										</div>
+										<div class="card-body bg-primary">
+											<div class="row">
+												<div class="col-5">
+													<div class="icon-big text-center text-primary">
+														<i class="far fa-calendar"></i>
+
+														<!-- 
+															<div class="icon-big text-center text-primary">
+																<div class="icon-wrap">
+																	<span class="doc-icon-calendar-star doc-icon-size-1 bg-primary"></span>
+																</div>
+															</div>
+														 -->
+
+													</div>
+												</div>
+												<div class="col-7 d-flex align-items-center">
+													<div class="numbers">
+														<h4>27</h4>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="widget">
+									<div class="card">
+										<div class="card-header p-0 m-0 d-md-block d-none">
+											<p>Total Appointments</p>
+										</div>
+										<div class="card-body bg-danger">
+											<div class="row">
+												<div class="col-5">
+													<div class="icon-big text-center text-danger">
+														<i class="far fa-calendar-alt"></i>
+													</div>
+												</div>
+												<div class="col-7 d-flex align-items-center">
+													<div class="numbers">
+														<h4>1327</h4>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="widget">
+									<div class="card">
+										<div class="card-header p-0 m-0 d-md-block d-none">
+											<p>Total Patients</p>
+										</div>
+										<div class="card-body bg-warning">
+											<div class="row">
+												<div class="col-5">
+													<div class="icon-big text-center text-warning">
+														<i class="fas fa-users"></i>
+													</div>
+												</div>
+												<div class="col-7 d-flex align-items-center">
+													<div class="numbers">
+														<h4>1287</h4>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+
 
 
 	<!-- Modal Add New Patient-->
@@ -531,7 +766,7 @@
 									<div class="row mb-2 text-center">
 										<div class="col-sm-12">
 											<a href="" class="profile-pic">
-												<img src="assets/img/profile-pic2.jpg" alt="user-img" width="80"
+												<img src="../assets/img/profile-pic2.jpg" alt="user-img" width="80"
 													class="img-circle">
 												<h6 class="pt-3 pb-3">Saifullah Al Amin</h6>
 											</a>
@@ -725,7 +960,7 @@
 											<div class="col-sm-12">
 												<div class="profile-wrap">
 													<div class="profile-pic">
-														<img src="assets/img/profile-pic.jpg" alt="user-img"
+														<img src="../assets/img/profile-pic.jpg" alt="user-img"
 															name="profile-pic" width="100" height="100"
 															class="img-circle">
 													</div>
@@ -1109,7 +1344,7 @@
 											<div class="col-sm-12">
 												<div class="profile-wrap">
 													<div class="profile-pic">
-														<img src="assets/img/profile-pic2.jpg" alt="user-img"
+														<img src="../assets/img/profile-pic2.jpg" alt="user-img"
 															name="profile-pic" width="100" height="100"
 															class="img-circle">
 													</div>
@@ -1227,7 +1462,7 @@
 									<div class="row mb-2 text-center">
 										<div class="col-sm-12">
 											<a href="" class="profile-pic">
-												<img src="assets/img/profile-pic2.jpg" alt="user-img" width="120"
+												<img src="../assets/img/profile-pic2.jpg" alt="user-img" width="120"
 													class="img-circle">
 												<h6 class="pt-3 pb-3">Hi! Saifullah Al Amin</h6>
 											</a>
@@ -1339,7 +1574,7 @@
 									<div class="row mb-2 text-center">
 										<div class="col-sm-12">
 											<a href="" class="profile-pic">
-												<img src="assets/img/profile-pic2.jpg" alt="user-img" width="120"
+												<img src="../assets/img/profile-pic2.jpg" alt="user-img" width="120"
 													class="img-circle">
 												<h6 class="pt-3 pb-3">Hi! Saifullah Al Amin</h6>
 											</a>
@@ -1485,7 +1720,7 @@
 									<div class="row mb-2 text-center">
 										<div class="col-sm-12">
 											<a href="" class="profile-pic">
-												<img src="assets/img/profile-pic2.jpg" alt="user-img" width="120"
+												<img src="../assets/img/profile-pic2.jpg" alt="user-img" width="120"
 													class="img-circle">
 												<h6 class="pt-3 pb-3">Hi! Saifullah Al Amin</h6>
 											</a>
@@ -1625,23 +1860,21 @@
 			<!-- <div class="modal-footer"></div> -->
 		</div>
 	</div><!-- Script -->
-	<script src="assets/vandor/jquery-3.2.1/jquery.3.2.1.min.js"></script>
-	<script src="assets/vandor/jquery-ui-1.12.1/jquery-ui.min.js"></script>
-	<script src="assets/vandor/popper/popper.min.js"></script>
-	<script src="assets/vandor/bootstrap-4.1.1/js/bootstrap.min.js"></script>
-	<script src="assets/vandor/moment/moment.min.js"></script>
-	<script src="assets/vandor/dropzone/dropzone.js"></script>
-	<script src="assets/vandor/dropzone/dropzone-amd-module.js"></script>
-	<!-- <script src="assets/vandor/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script> -->
-	<script src="assets/vandor/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
-	<script src="assets/vandor/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
-	<script src="assets/vandor/fullcalendar-3.10.0/fullcalendar.js"></script>
-	<!-- <script src="assets/js/plugin/bootstrap-notify/bootstrap-notify.min.js"></script> -->
-	<script src="assets/vandor/bootstrap-toggle/bootstrap-toggle.min.js"></script>
-	<script src="assets/vandor/jquery-mapael/jquery.mapael.min.js"></script>
-	<script src="assets/vandor/jquery-scrollbar/jquery.scrollbar.min.js"></script>
-	<script src="assets/js/script.min.js"></script>
-	<script src="assets/js/circlemenu.js"></script>
+	<script src="../assets/vandor/jquery-3.2.1/jquery.3.2.1.min.js"></script>
+	<script src="../assets/vandor/jquery-ui-1.12.1/jquery-ui.min.js"></script>
+	<script src="../assets/vandor/popper/popper.min.js"></script>
+	<script src="../assets/vandor/bootstrap-4.1.1/js/bootstrap.min.js"></script>
+	<script src="../assets/vandor/moment/moment.min.js"></script>
+	<script src="../assets/vandor/dropzone/dropzone.js"></script>
+	<script src="../assets/vandor/dropzone/dropzone-amd-module.js"></script>
+	<script src="../assets/vandor/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+	<script src="../assets/vandor/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
+	<script src="../assets/vandor/fullcalendar-3.10.0/fullcalendar.js"></script>
+	<script src="../assets/vandor/bootstrap-toggle/bootstrap-toggle.min.js"></script>
+	<script src="../assets/vandor/jquery-mapael/jquery.mapael.min.js"></script>
+	<script src="../assets/vandor/jquery-scrollbar/jquery.scrollbar.min.js"></script>
+	<script src="../assets/js/script.min.js"></script>
+	<script src="../assets/js/circlemenu.js"></script>
 	<script type="text/javascript">
 
 		$(function () {
