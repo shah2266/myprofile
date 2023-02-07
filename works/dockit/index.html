@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="Doctors simple dashboard">
+	<meta name="author" content="Shah Alam">
+
+	<title>DOC KIT-Login</title>
+
+	<!-- Bootstrap core CSS -->
+	<link rel="stylesheet" href="assets/vandor/bootstrap-4.1.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/vandor/fontawesome/css/all.css">
+	<link rel="stylesheet" href="assets/css/login.css">
+
+</head>
+
+<body class="pt-5 pb-5">
+
+	<div class="treatment-img-1">
+		<img src="assets/img/Group2.png" alt="background image" class="img-fluid">
+	</div>
+
+	<div class="bg-white border-radius-10 form-layout-1 form-box-shadow text-left m-auto">
+		<div class="logo">
+			<img class="mb-4 img-fluid" src="assets/img/logo.png" alt="logo">
+			<span style="font-size: 10px; font-style: italic; color: lightskyblue;">Admin login</span>
+		</div>
+		<form class="form-sign-in mt-5" action="https://shah2266.github.io/me/works/dockit/dashboard.html"
+			method="POST">
+			<div class="form-group">
+				<label for="username">E-mail</label>
+				<input type="text" class="fadeIn second form-control" id="username" name="username">
+			</div>
+			<div class="form-group">
+				<label for="password">Password</label>
+				<input type="password" class="fadeIn third form-control" id="password" name="password">
+			</div>
+			<div class="form-group">
+				<label class="form-forgot-password">
+					<a href="" data-toggle="modal" data-target="#resetPasswordStep1"><i class="fas fa-lock mr-2"></i>
+						Forgot your password?</a>
+				</label>
+			</div>
+			<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+		</form>
+	</div>
+
+	<div class="treatment-img-2">
+		<img src="assets/img/Group3.png" alt="background image" class="img-fluid">
+	</div>
+
+	<!-- Modal Reset Password Step-1 -->
+	<div class="modal fade" id="resetPasswordStep1" tabindex="-1" role="dialog" aria-labelledby="resetPasswordStep1"
+		aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header text-primary pt-1 pb-1">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<h3 class="text-primary text-center">Reset Password</h3>
+					<p class="text-primary text-center mt-5">Please enter your email <br>and we will send a link to
+						reset your password.</p>
+					<form class="form text-left p-4" action="#" method="POST">
+						<div class="row">
+							<div class="col-md-12">
+								<div class="form-group p-0">
+									<label for="email">E-mail</label>
+									<input type="text" class="form-control" name="email"
+										placeholder="Enter your registered email">
+								</div>
+							</div>
+						</div>
+						<div class="form-group row button-icon mt-5">
+							<div class="col-md-8 offset-md-2">
+								<a href="#" class="btn btn-primary btn-block ml-auto mr-auto" data-toggle="modal"
+									data-target="#resetPasswordStep2">Reset</a>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+			<!-- <div class="modal-footer"></div> -->
+		</div>
+	</div>
+
+	<!-- Modal Reset Password Step-2 -->
+	<div class="modal fade resetPasswordStep2" id="resetPasswordStep2" tabindex="-1" role="dialog"
+		aria-labelledby="resetPasswordStep2" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header text-primary pt-1 pb-1">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body p-4">
+					<h3 class="text-primary text-center">Reset Password</h3>
+					<div class="row">
+						<div class="col-md-6 offset-md-3">
+							<a href="#" data-toggle="modal" data-target="#resetPasswordStep3"
+								class="text-primary text-center check-mail">Please check mail</a>
+						</div>
+
+						<div class="col-md-6 offset-md-3 mt-2">
+							<span class="text-default text-center">or</span>
+						</div>
+
+						<div class="col-md-8 offset-md-2 mt-5 mb-4">
+							<a href="index.html" class="btn btn-primary btn-block ml-auto mr-auto">Sign in</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- <div class="modal-footer"></div> -->
+		</div>
+	</div>
+
+
+	<!-- Modal Reset Password Step-1 -->
+	<div class="modal fade" id="resetPasswordStep3" tabindex="-1" role="dialog" aria-labelledby="resetPasswordStep3"
+		aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header text-primary pt-1 pb-1">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<h3 class="text-primary text-center">Reset Password</h3>
+					<p class="text-primary text-center mt-5">Your given email address<br>is not registered in the
+						system.</p>
+					<span class="text-default text-center">Pleaese try again.</span>
+					<form class="form text-left p-4" action="#" method="POST">
+						<div class="row">
+							<div class="col-md-12">
+								<div class="form-group p-0">
+									<label for="email">E-mail</label>
+									<input type="text" class="form-control" name="email"
+										placeholder="Enter your registered email">
+								</div>
+							</div>
+						</div>
+						<div class="form-group row button-icon mt-5">
+							<div class="col-md-8 offset-md-2">
+								<a href="index.html" class="btn btn-primary btn-block ml-auto mr-auto">Reset</a>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+			<!-- <div class="modal-footer"></div> -->
+		</div>
+	</div>
+	<!-- Script -->
+	<script src="assets/vandor/jquery-3.2.1/jquery.3.2.1.min.js"></script>
+	<script src="assets/vandor/bootstrap-4.1.1/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

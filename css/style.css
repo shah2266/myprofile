@@ -1,0 +1,91 @@
+/* Global styles
+-------------------------------------*/
+html {
+	box-sizing: border-box;
+}
+
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+
+body {
+	color: #343434;
+	margin: 0;
+	padding: 0;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 15px;
+	line-height: 1.5;
+    background: rgb(245,244,238);
+    background: linear-gradient(294deg, rgba(245,244,238,1) 0%, rgba(239,239,235,1) 35%, rgba(240,239,225,1) 100%); 
+}
+
+img {
+	width: 300px;
+    height: 300px;
+    border-radius: 50%;
+}
+
+h1 {
+    font-size: 80px;
+    margin-top: 0;
+    line-height: 1;
+}
+.container {
+    max-width: 960px;
+    width: 85%;
+    margin: 0 auto;
+    padding: 60px 0;
+}
+
+
+/* Work list
+-------------------------------------*/
+
+.w-list {
+    list-style-type: none;
+}
+.w-list a {
+    padding: 10px;
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+.w-list a:hover {
+    text-decoration: none;
+}
+
+
+/* Responsive
+-------------------------------------*/
+
+@media screen and (min-width: 750px) {
+    .profile {
+        display: grid;
+        /*grid-template-columns: repeat(2, 1fr);*/
+        grid-template-columns: 1fr 4fr;
+        column-gap: 40px;
+    }
+
+    .w-list {
+		display: flex;
+		justify-content: center;
+	}
+}
+
+@media screen and (max-width: 749px) {
+
+	h1 {
+		font-size: 65px;
+		line-height: 0.9;
+		margin-bottom: 25px;
+        margin-top: 50px;
+	}
+    img {
+        display: block;
+        margin: 0 auto;
+    }
+
+    .details {
+        text-align: center;
+    }
+}

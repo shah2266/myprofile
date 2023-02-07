@@ -1,0 +1,1805 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="Doctors simple dashboard">
+	<meta name="author" content="Shah Alam">
+
+
+	<title>DOC KIT</title>
+	<link rel="stylesheet"
+		href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+	<link rel="stylesheet" href="assets/vandor/bootstrap-4.1.1/css/bootstrap.min.css">
+	<!-- <link rel="stylesheet" href="assets/vandor/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css"> -->
+	<link rel="stylesheet" href="assets/vandor/bootstrap-datepicker/css/bootstrap-datepicker.min.css">
+	<link rel="stylesheet" href="assets/vandor/bootstrap-timepicker/css/bootstrap-timepicker.css">
+	<link rel="stylesheet" href="assets/vandor/fullcalendar-3.10.0/fullcalendar.css">
+	<link rel="stylesheet" href="assets/vandor/dropzone/basic.css">
+	<link rel="stylesheet" href="assets/vandor/dropzone/dropzone.css">
+	<link rel="stylesheet" href="assets/css/style.css">
+	<link rel="stylesheet" href="assets/vandor/fontawesome/css/all.min.css">
+</head>
+
+<body>
+	<div class="wrapper">
+		<div class="main-header">
+			<div class="logo-header">
+				<a href="dashboard.html" class="logo">
+					<img src="assets/img/logo.png" alt="logo" class="img-fluid">
+				</a>
+				<button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse"
+					data-target="collapse" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<button class="topbar-toggler more">
+					<i class="fas fa-search"></i>
+				</button>
+			</div>
+			<nav class="navbar navbar-header navbar-expand-lg">
+				<div class="container-fluid pl-0 pr-0">
+					<form class="navbar-left navbar-form nav-search mr-md-3" action="#" method="POST">
+						<div class="input-group">
+							<input type="text" placeholder="Search by patient name" class="form-control">
+							<div class="input-group-append">
+								<span class="input-group-text">
+									<i class="fas fa-search"></i>
+								</span>
+							</div>
+						</div>
+					</form>
+					<ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
+						<li class="nav-item dropdown d-small-none d-md-block d-lg-block">
+							<a class="dropdown btn-primary theme-add-btn" data-toggle="dropdown" href="#"
+								aria-expanded="false">
+								<i class="fa fa-plus"> </i> <span>Add New</span>
+							</a>
+							<ul class="dropdown-menu dropdown-button-menu">
+								<li>
+									<a class="dropdown-item" href="#" data-toggle="modal" data-target="#addNewPatient">
+										<span class="doc-icon-users doc-icon-size-1 doc-icon-bg-primary"></span>
+										<p>Patients</p>
+									</a>
+								</li>
+								<li>
+									<a class="dropdown-item" href="#" data-toggle="modal" data-target="#appointments">
+										<span class="doc-icon-calendar-gray doc-icon-size-1 doc-icon-bg-primary"></span>
+										<p>Appointments</p>
+									</a>
+								</li>
+								<li>
+									<a class="dropdown-item" href="#" data-toggle="modal" data-target="#prescriptions">
+										<span class="doc-icon-prescription doc-icon-size-1 doc-icon-bg-primary"></span>
+										<p>Prescriptions</p>
+									</a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</nav>
+
+			<nav class="c-circle-menu js-menu d-md-none d-lg-none d-sm-block">
+				<button class="c-circle-menu__toggle js-menu-toggle">
+					<span>Toggle</span>
+				</button>
+				<ul class="c-circle-menu__items">
+					<li class="c-circle-menu__item">
+						<a href="#" data-toggle="modal" data-target="#prescriptions" class="c-circle-menu__link">
+							<div><i class="doc-icon-prescription doc-icon-size-2 bg-primary"></i></div>
+						</a>
+					</li>
+					<li class="c-circle-menu__item">
+						<a href="#" data-toggle="modal" data-target="#appointments" class="c-circle-menu__link">
+							<div><i class="doc-icon-calendar-gray doc-icon-size-1 bg-primary"></i></div>
+						</a>
+					</li>
+					<li class="c-circle-menu__item">
+						<a href="#" data-toggle="modal" data-target="#addNewPatient" class="c-circle-menu__link">
+							<div><i class="doc-icon-users doc-icon-size-1 bg-primary"></i></div>
+						</a>
+					</li>
+
+				</ul>
+				<div class="c-circle-menu__mask js-menu-mask"></div>
+			</nav>
+		</div>
+		<div class="sidebar">
+			<div class="scrollbar-inner sidebar-wrapper" style="height: 100vh">
+				<ul class="nav">
+					<li class="nav-item active">
+						<a href="dashboard.html">
+							<!-- <i class="fas fa-th-large"></i> -->
+							<span class="doc-icon-th-o doc-icon-size-2 doc-icon-bg-gray"></span>
+							<p>Dashboard</p>
+						</a>
+					</li>
+
+					<li class="nav-item">
+						<a href="appointments.html">
+							<span class="doc-icon-calendar-gray doc-icon-size-2 doc-icon-bg-gray"></span>
+							<p>Appointments</p>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a href="patients.html">
+							<span class="doc-icon-users doc-icon-size-2 doc-icon-bg-gray"></span>
+							<p>Patients</p>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a href="prescriptions.html">
+							<span class="doc-icon-prescription doc-icon-size-2 doc-icon-bg-gray"></span>
+							<p>Prescriptions</p>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a href="review-feedbacks.html">
+							<span class="doc-icon-comment doc-icon-size-2 doc-icon-bg-gray"></span>
+							<p>Review Feedbacks</p>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a href="settings.html">
+							<span class="doc-icon-setting doc-icon-size-2 doc-icon-bg-gray"></span>
+							<p>Settings</p>
+						</a>
+					</li>
+					<li class="nav-item d-block d-md-none mt-5">
+						<a href="/">
+							<span class="doc-icon-desktop doc-icon-size-2 doc-icon-bg-gray"></span>
+							<p>View Website</p>
+						</a>
+					</li>
+					<li class="nav-item d-block d-md-none">
+						<a href="index.html">
+							<span class="doc-icon-logout doc-icon-size-2 doc-icon-bg-gray"></span>
+							<p>Log Out</p>
+						</a>
+					</li>
+				</ul>
+				<div class="nav-item sidebar-log-out d-none d-md-block">
+					<a href="#">
+						<span class="doc-icon-desktop doc-icon-size-2 doc-icon-bg-gray"></span>
+						<span>View Website</span>
+					</a><br>
+					<a href="index.html">
+						<span class="doc-icon-logout doc-icon-size-2 doc-icon-bg-gray"></span>
+						<span>Log Out</span>
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="main-panel">
+			<div class="content">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-sm-12 col-md-5">
+							<div class="profile">
+								<div class="profile-body clearfix">
+									<div class="profile-bg"></div>
+									<div class="profile-img">
+										<img src="assets/img/profile-pic.jpg" class="img-responsive img-center" >
+									</div>
+									<div class="profile-content">
+										<h3 class="name">Dr. Sofie Turner</h3>
+										<h4 class="designation">Skin Specialist</h4>
+									</div>
+									<div class="ml-4 mr-4 mt-4 clearfix">
+										<form action="#" method="POST">
+											<div class="form-group row pt-0 pb-0 pl-0 pr-0 bg-default rounded">
+												<label for="staticEmail"
+													class="col-sm-4 col-form-label"><b>E-mail:</b></label>
+												<div class="col-sm-8">
+													<input type="text" class="form-control-plaintext editField"
+														id="staticEmail" value="email@example.com" readonly>
+												</div>
+											</div>
+											<div class="form-group row pt-1 pb-0 mt-2 pl-0 pr-0 bg-default rounded">
+												<label for="staticEmail"
+													class="col-sm-4 col-form-label"><b>Contact:</b></label>
+												<div class="col-sm-8">
+													<input type="text" class="form-control-plaintext editField"
+														id="staticEmail" value="+88 01234 56 78 90" readonly>
+												</div>
+											</div>
+											<div class="form-group row pt-0 pb-0 mt-2 pl-0 pr-0 bg-default rounded">
+												<label for="staticEmail"
+													class="col-sm-4 col-form-label"><b>Address:</b></label>
+												<div class="col-sm-8">
+													<input type="text" class="form-control-plaintext editField"
+														id="staticEmail" value="841, R#13, A#03, Mirpur DOHS, Dhaka."
+														readonly>
+												</div>
+											</div>
+											<div class="form-group row button-icon pb-4">
+												<div class="col-md-10 offset-md-1 mt-3">
+													<!--<a href="#" class="btn btn-primary btn-block ml-auto mr-auto" data-toggle="modal" data-target="#adminProfileEdit"><i class="fas fa-pencil-alt"></i> Edit</a>-->
+													<div class="row">
+														<div class="col-sm-6 submit-btn" style="display:none;">
+															<button type="submit" class="btn btn-success"><i
+																	class="fas fa-save"></i> Submit</button>
+														</div>
+														<div class="col-sm-12 edit">
+															<a href="#" class="btn btn-primary editBtn btn-block"><i
+																	class="fas fa-pencil-alt"></i> Edit</a>
+														</div>
+													</div>
+												</div>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-12 col-md-7 doc-password-section">
+							<div class="bg-white mr-3 ml-3 p-3 mb-3 rounded">
+								<form class="form" action="#" method="POST">
+									<div class="form-group p-0">
+										<label for="currentPassword">Current Password</label>
+										<input type="password" class="form-control" id="currentPassword"
+											name="currentPassword">
+									</div>
+									<div class="form-group p-0">
+										<label for="newPassword">New Password</label>
+										<input type="password" class="form-control" id="newPassword" name="newPassword">
+									</div>
+									<div class="form-group p-0">
+										<label for="reEnterPassword">Re-enter New Password</label>
+										<input type="password" class="form-control" id="reEnterPassword"
+											name="reEnterPassword">
+									</div>
+									<div class="form-group row button-icon pb-0">
+										<div class="col-md-6 offset-md-3">
+											<button type="submit"
+												class="btn btn-primary btn-block ml-auto mr-auto">Update
+												password</button>
+										</div>
+									</div>
+								</form>
+							</div>
+							<div class="bg-white mr-3 ml-3 p-3 rounded">
+								<form action="#" id="frmFileUpload" class="dropzone" method="post"
+									enctype="multipart/form-data">
+									<div class="dropzone-inner">
+										<div class="dz-message">
+											<div class="drag-icon-cph">
+												<i class="fas fa-cloud-upload-alt"></i>
+											</div>
+										</div>
+										<div class="fallback">
+											<input name="file" type="file" multiple >
+										</div>
+									</div>
+									<div class="form-group row button-icon pb-0 mt-3">
+										<div class="col-md-6 offset-md-3">
+											<button type="submit"
+												class="btn btn-primary btn-block ml-auto mr-auto">Update system
+												logo</button>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Modal Add New Patient-->
+	<div class="modal fade" id="addNewPatient" tabindex="-1" role="dialog" aria-labelledby="newPatient"
+		aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+			<div class="modal-content p-3">
+				<div class="modal-header text-primary pt-2 pb-4">
+					<h6 class="modal-title">Basic Information</h6>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<form class="form" action="#" method="POST">
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group p-0">
+									<label for="Name">Name</label>
+									<input type="text" class="form-control" id="name" name="name">
+								</div>
+								<div class="form-group p-0">
+									<label for="gender">Gender</label>
+									<select class="select-form-control select_box" name="gender">
+										<option>Select</option>
+										<option value="">Male</option>
+										<option value="">Female</option>
+									</select>
+								</div>
+							</div>
+
+							<div class="col-md-6">
+								<div class="form-group p-0">
+									<label for="age">Age</label>
+									<input type="text" class="form-control" name="age">
+								</div>
+								<div class="form-group p-0">
+									<label for="contactNumber">Contact Number</label>
+									<input type="text" class="form-control" name="contactNumber">
+								</div>
+							</div>
+							<div class="col-md-12">
+								<div class="form-group p-0">
+									<label for="address">Address</label>
+									<input type="text" class="form-control" name="address">
+								</div>
+							</div>
+
+							<div class="col-md-12">
+								<div class="text-primary pt-1 pb-1">
+									<h6 class="modal-title">Medical Information</h6>
+								</div>
+							</div>
+
+							<div class="col-md-6">
+								<div class="form-group p-0">
+									<label for="height">Height</label>
+									<input type="text" class="form-control" name="height">
+								</div>
+
+								<div class="form-group p-0">
+									<label for="bloodGroup">Blood Group</label>
+									<input type="text" class="form-control" name="bloodGroup">
+								</div>
+
+								<div class="form-group p-0">
+									<label for="pulse">Pulse</label>
+									<input type="text" class="form-control" name="pulse">
+								</div>
+								<div class="form-group p-0">
+									<label for="allergy">Allergy</label>
+									<input type="text" class="form-control" name="allergy">
+								</div>
+							</div>
+
+							<div class="col-md-6">
+								<div class="form-group p-0">
+									<label for="weight">Weight</label>
+									<input type="text" class="form-control"  name="weight">
+								</div>
+								<div class="form-group p-0">
+									<label for="bloodPressure">Blood Pressure</label>
+									<input type="text" class="form-control" name="bloodPressure">
+								</div>
+								<div class="form-group p-0">
+									<label for="respiration">Respiration</label>
+									<input type="text" class="form-control" name="respiration">
+								</div>
+								<div class="form-group p-0">
+									<label for="diet">Diet</label>
+									<input type="text" class="form-control" name="diet">
+								</div>
+							</div>
+						</div>
+						<div class="form-group row button-icon pb-0">
+							<div class="col-md-6 offset-md-3 text-center">
+								<button type="submit" class="btn btn-primary ml-auto mr-auto"><i
+										class="fas fa-plus"></i>
+									Add New Patient</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+			<!-- <div class="modal-footer"></div> -->
+		</div>
+	</div>
+
+	<!-- Modal Appointments-->
+	<div class="modal fade" id="appointments" tabindex="-1" role="dialog" aria-labelledby="appointments"
+		aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content p-3">
+				<div class="modal-header text-primary pt-2 pb-4">
+					<h6 class="modal-title">New Appointment</h6>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<form class="form" action="#" method="POST">
+						<div class="row">
+							<div class="col-md-12">
+								<div class="form-group p-0">
+									<label for="Name">Patient</label>
+									<select class="select-form-control select_box mb-2">
+										<option>Select</option>
+									</select>
+								</div>
+
+								<div class="form-group p-0 date-field">
+									<label for="date">Date</label>
+									<div id="datePicker1" class="input-group date input-group-append-custom"
+										data-date-format="dd MM yyyy">
+										<input class="form-control" type="text" readonly >
+										<span class="input-group-addon"><i class="icon-calendar"></i></span>
+									</div>
+								</div>
+
+								<div class="form-group p-0 bootstrap-timepicker">
+									<label for="time">Time</label>
+									<div class="input-group input-group-append-custom">
+										<input id="timePicker1" type="text" class="form-control input-small" readonly>
+										<span class="input-group-addon"><i class="far fa-clock"></i></span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="form-group row button-icon pb-0">
+							<div class="col-md-6 offset-md-3">
+								<button type="submit" class="btn btn-primary btn-block ml-auto mr-auto">Create
+									Appointment</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+			<!-- <div class="modal-footer"></div> -->
+		</div>
+	</div>
+
+
+	<!-- Modal Prescription Add-->
+	<div class="modal fade" id="prescriptions" tabindex="-1" role="dialog" aria-labelledby="prescriptions"
+		aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+			<div class="modal-content p-3">
+				<div class="modal-header text-primary pt-2 pb-4">
+					<h6 class="modal-title">Basic Information</h6>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<form class="form" action="#" method="POST">
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group p-0">
+									<label for="Name">Patient</label>
+									<select class="select-form-control select_box mb-2">
+										<option>Select</option>
+									</select>
+								</div>
+								<div class="form-group p-0">
+									<label for="age">Diagnosis</label>
+									<input type="text" class="form-control" id="age" name="age"
+										placeholder="Add Diagnosis">
+								</div>
+								<div class="form-group p-0">
+									<label for="medicineName">Medicine</label>
+									<input type="text" class="form-control" id="medicineName" name="medicineName"
+										placeholder="Medicine Name">
+								</div>
+								<div class="form-group pl-0 pr-0 pt-3 pb-3">
+									<button class="btn btn-primary" id="addMedicine"><i class="fas fa-plus"></i> Add
+										Medicine</button>
+								</div>
+							</div>
+
+							<div class="col-md-6">
+								<div class="form-group p-0">
+									<label for="age">Symptoms</label>
+									<textarea name="symptoms" id="symptoms" class="form-control" cols="30" rows="3"
+										style="height:104px;"></textarea>
+								</div>
+								<div class="form-group p-0">
+									<label for="notes">Notes</label>
+									<input type="text" class="form-control" name="notes">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group p-0">
+									<label for="testName">Test</label>
+									<input type="text" class="form-control" id="testName" name="testName"
+										placeholder="Test Name">
+								</div>
+								<div class="form-group pl-0 pr-0 pt-3 pb-3">
+									<button class="btn btn-primary" id="addMedicine"><i class="fas fa-plus"></i> Add
+										Test</button>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group p-0">
+									<label for="notes">Notes</label>
+									<input type="text" class="form-control" name="notes">
+								</div>
+							</div>
+
+						</div>
+						<div class="form-group row button-icon pb-0">
+							<div class="col-md-6 offset-md-3 text-center">
+								<button type="submit" class="btn btn-primary ml-auto mr-auto"><i
+										class="fas fa-save"></i>
+									Save Prescription</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+			<!-- <div class="modal-footer"></div> -->
+		</div>
+	</div>
+
+	<!-- Modal Patient Profile-->
+	<div class="modal fade" id="profile" tabindex="-1" role="dialog" aria-labelledby="profile" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered modal-md" role="document">
+			<div class="modal-content">
+				<div class="modal-header text-primary pt-1 pb-1">
+
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="ml-4 mr-4 bg-white rounded">
+								<div class="ml-3 mr-3 p-2 pt-1 clearfix profile-details">
+									<div class="row mb-2 text-center">
+										<div class="col-sm-12">
+											<a href="" class="profile-pic">
+												<img src="assets/img/profile-pic2.jpg" alt="user-img" width="80"
+													class="img-circle">
+												<h6 class="pt-3 pb-3">Saifullah Al Amin</h6>
+											</a>
+										</div>
+									</div>
+
+									<div class="row p-1 mb-2 bg-default rounded">
+										<div class="col-sm-3">
+											<h6>Age:</h6>
+										</div>
+										<div class="col-sm-9 text-right">
+											<span>23</span>
+										</div>
+									</div>
+									<div class="row p-1 mb-2 bg-default rounded">
+										<div class="col-sm-3">
+											<h6>Gender:</h6>
+										</div>
+										<div class="col-sm-9 text-right">
+											<span>Male</span>
+										</div>
+									</div>
+									<div class="row p-1 mb-2 bg-default rounded">
+										<div class="col-sm-3">
+											<h6>Contact:</h6>
+										</div>
+										<div class="col-sm-9 text-right">
+											<span>+88 01234 56 78 90 </span>
+										</div>
+									</div>
+									<div class="row p-1 mb-2 bg-default rounded">
+										<div class="col-sm-3">
+											<h6>Address:</h6>
+										</div>
+										<div class="col-sm-9 text-right">
+											<span>841, R#13, A#03, Mirpur DOHS, Dhaka.</span>
+										</div>
+									</div>
+
+									<h6 class="text-center pt-3 pb-3 text-primary">Medical Information</h6>
+
+									<div class="row pl-1 pr-1 pt-2 mb-2 bg-default rounded">
+										<div class="col-sm-4">
+											<h6>Height:</h6>
+										</div>
+										<div class="col-sm-8 text-right">
+											<span>5'7"</span>
+										</div>
+									</div>
+									<div class="row pl-1 pr-1 pt-2 mb-2 bg-default rounded">
+										<div class="col-sm-4">
+											<h6>Weight:</h6>
+										</div>
+										<div class="col-sm-8 text-right">
+											<span>55 kg</span>
+										</div>
+									</div>
+									<div class="row pl-1 pr-1 pt-2 mb-2 bg-default rounded">
+										<div class="col-sm-4">
+											<h6>Blood Group:</h6>
+										</div>
+										<div class="col-sm-8 text-right">
+											<span>A+</span>
+										</div>
+									</div>
+									<div class="row pl-1 pr-1 pt-2 mb-2 bg-default rounded">
+										<div class="col-sm-4">
+											<h6>Blood Pressure:</h6>
+										</div>
+										<div class="col-sm-8 text-right">
+											<span>80/120</span>
+										</div>
+									</div>
+									<div class="row pl-1 pr-1 pt-2 mb-2 bg-default rounded">
+										<div class="col-sm-4">
+											<h6>Pulse:</h6>
+										</div>
+										<div class="col-sm-8 text-right">
+											<span>70</span>
+										</div>
+									</div>
+									<div class="row pl-1 pr-1 pt-2 mb-2 bg-default rounded">
+										<div class="col-sm-4">
+											<h6>Respiration:</h6>
+										</div>
+										<div class="col-sm-8 text-right">
+											<span>2332</span>
+										</div>
+									</div>
+
+									<div class="row pl-1 pr-1 pt-2 mb-2 bg-default rounded">
+										<div class="col-sm-4">
+											<h6>Allergy:</h6>
+										</div>
+										<div class="col-sm-8 text-right">
+											<span>No</span>
+										</div>
+									</div>
+
+									<div class="row pl-1 pr-1 pt-2 mb-2 bg-default rounded">
+										<div class="col-sm-4">
+											<h6>Diet:</h6>
+										</div>
+										<div class="col-sm-8 text-right">
+											<span>No</span>
+										</div>
+									</div>
+									<div class="form-group row button-icon">
+										<div class="col-md-6 offset-md-3 mt-3">
+											<a href="profile.html" class="btn btn-primary btn-block ml-auto mr-auto">
+												Show details
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<!-- <div class="modal-footer"></div> -->
+		</div>
+	</div>
+
+	<!-- Modal Feedback -->
+	<div class="modal fade" id="feedback" tabindex="-1" role="dialog" aria-labelledby="feedback" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+			<div class="modal-content">
+				<div class="modal-header text-primary pt-1 pb-1">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body feedback-modal">
+					<div class="row pt-3 pb-3">
+						<div class="col-md-12 text-center">
+							<h5 class="text-primary">Saifullah Al Amin's Feedback</h5>
+							<div class="rating">
+								<input type="radio" name="rating" value="5" id="5">
+								<label for="5"><i class="fa fa-star"></i></label>
+								<input type="radio" name="rating" value="4" id="4">
+								<label for="4"><i class="fa fa-star"></i></label>
+								<input type="radio" name="rating" value="3" id="3">
+								<label for="3"><i class="fa fa-star"></i></label>
+								<input type="radio" name="rating" value="2" id="2">
+								<label for="2"><i class="fa fa-star"></i></label>
+								<input type="radio" name="rating" value="1" id="1" checked>
+								<label for="1"><i class="fa fa-star"></i></label>
+							</div>
+						</div>
+
+						<div class="col-md-8 offset-md-2 text-center pt-2 pb-2">
+							<p>Doc Kit is the best in my experience. It gets phone numbers, others just don't. I have no
+								idea how it works, but it's much quicker than rusing and it is effective.</p>
+						</div>
+
+						<div class="col-sm-12 col-md-8 offset-md-2 pt-3 text-center">
+							<div class="form-group">
+								<button type="submit" class="btn btn-success mr-2">Approve</button>
+								<button type="submit" class="btn btn-danger ml-2">Decline</button>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- <div class="modal-footer"></div> -->
+		</div>
+	</div>
+
+	<!-- Modal Profile Details Edit-->
+	<div class="modal fade" id="adminProfileEdit" tabindex="-1" role="dialog" aria-labelledby="adminProfileEdit"
+		aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered modal-md" role="document">
+			<div class="modal-content">
+				<div class="modal-header text-primary pt-1 pb-1">
+
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="ml-4 mr-4 bg-white rounded">
+								<div class="ml-3 mr-3 p-2 pt-1 clearfix profile-details">
+									<form action="#" method="POST">
+										<div class="row mb-2 text-center">
+											<div class="col-sm-12">
+												<div class="profile-wrap">
+													<div class="profile-pic">
+														<img src="assets/img/profile-pic.jpg" alt="user-img"
+															name="profile-pic" width="100" height="100"
+															class="img-circle">
+													</div>
+													<div class="profile-edit">
+														<i class="fas fa-pencil-alt upload"></i>
+														<input class="file-upload" type="file" accept="image/*" >
+													</div>
+												</div>
+												<h6 class="pt-3 pb-3">Dr. Sofie Turner</h6>
+											</div>
+										</div>
+										<div class="form-group row pt-0 pb-0 pl-0 pr-0 ">
+											<label for="email" class="col-sm-4 col-form-label"><b>E-mail:</b></label>
+											<div class="col-sm-8">
+												<input type="text" class="form-control" name="email"
+													value="email@example.com">
+											</div>
+										</div>
+										<div class="form-group row pt-0 pb-0 mt-2 pl-0 pr-0">
+											<label for="contact" class="col-sm-4 col-form-label"><b>Contact:</b></label>
+											<div class="col-sm-8">
+												<input type="text" class="form-control"  name="contact"
+													value="+1234567890">
+											</div>
+										</div>
+										<div class="form-group row pt-0 pb-0 mt-2 pl-0 pr-0">
+											<label for="address" class="col-sm-4 col-form-label"><b>Address:</b></label>
+											<div class="col-sm-8">
+												<input type="text" class="form-control"  name="address"
+													value="841, R#13, A#03, Mirpur DOHS, Dhaka.">
+											</div>
+										</div>
+										<div class="form-group row button-icon pb-4">
+											<div class="col-md-6 offset-md-3 mt-3">
+												<button type="submit" class="btn btn-primary btn-block ml-auto mr-auto">
+													<i class="far fa-save"></i> Save
+												</button>
+											</div>
+										</div>
+									</form>
+
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<!-- <div class="modal-footer"></div> -->
+		</div>
+	</div>
+
+	<!-- Modal Prescriptions Print-->
+	<div class="modal fade" id="printPrescriptions" tabindex="-1" role="dialog" aria-labelledby="printPrescriptions"
+		aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+			<div class="modal-content">
+				<div class="modal-header text-primary pt-1 pb-1">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body print">
+					<div class="border pl-4 pr-4 pt-2 pb-2">
+						<div class="row">
+							<div class="col-6 col-md-6 text-left">
+								<h4>Prescription</h4>
+							</div>
+							<div class="col-6 col-md-6 text-right">
+								<h4 class="text-lighter">Date: 28 July, 2019</h4>
+							</div>
+							<div class="col-md-12">
+								<div class="border-bottom"></div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-6 col-md-6 text-left">
+								<h3>Dr. Sofie Turner</h3>
+								<p>Skin Specialist</p>
+								<p>Phone: +880 1234 56 78 90</p>
+							</div>
+							<div class="col-6 col-md-6 text-right">
+								<h3>To,</h3>
+								<h5>Saifullah Al Amin</h5>
+								<p>Phone: +880 1234 56 78 90</p>
+								<p>Date: 28 July, 2019</p>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-12">
+								<h6>Symptoms</h6>
+								<p>Skin rashes</p>
+							</div>
+							<div class="col-md-12 pt-2 pb-2">
+								<h6>Diagnosis</h6>
+								<p>Need some medication</p>
+							</div>
+						</div>
+
+						<div class="row mt-2">
+							<div class="col-md-12">
+								<h6 class="text-left">Tests</h6>
+								<!-- Format-1 -->
+								<div id="div-table">
+									<div class="div-theading">
+										<div class="data-cell">Sr.No</div>
+										<div class="data-cell">Test Name</div>
+										<div class="data-cell">Notes</div>
+									</div>
+									<div class="div-trow">
+										<div class="data-cell">01</div>
+										<div class="data-cell">skin rash</div>
+										<div class="data-cell">Dengue</div>
+									</div>
+									<div class="div-trow">
+										<div class="data-cell">02</div>
+										<div class="data-cell">skin rash</div>
+										<div class="data-cell">Dengue</div>
+									</div>
+								</div>
+
+								<!-- Format-2 -->
+								<!-- <div class="row text-left" style="color: #000000;">
+									<div class="col-sm-12">
+										<div class="row pt-2" style="font-weight:bold;">
+											<div class="col-2 col-sm-2">Sr.No</div>
+											<div class="col-5 col-sm-5">Name</div>
+											<div class="col-5 col-sm-5">Notes</div>
+										</div>
+										<div class="row pt-2">
+											<div class="col-2 col-sm-2">01</div>
+											<div class="col-5 col-sm-5">skin rash</div>
+											<div class="col-5 col-sm-5">Keep taking med</div>
+										</div>
+										<div class="row pt-2">
+											<div class="col-2 col-sm-2">02</div>
+											<div class="col-5 col-sm-5">skin rash</div>
+											<div class="col-5 col-sm-5">Dengue</div>
+										</div>
+									</div>
+								</div> -->
+								<h6 class="text-left mt-3">Medicines</h6>
+								<div id="div-table">
+									<div class="div-theading">
+										<div class="data-cell">Sr.No</div>
+										<div class="data-cell">Medicine Name</div>
+										<div class="data-cell">Notes</div>
+									</div>
+									<div class="div-trow">
+										<div class="data-cell">01</div>
+										<div class="data-cell">skin rash</div>
+										<div class="data-cell">Dengue</div>
+									</div>
+									<div class="div-trow">
+										<div class="data-cell">02</div>
+										<div class="data-cell">Pentadol 75mg</div>
+										<div class="data-cell">You're dead bro</div>
+									</div>
+								</div>
+
+
+								<!-- Format-1 -->
+								<!-- <div id="div-table">
+									<div class="div-theading">
+										<div class="data-cell">Sr.No</div>
+										<div class="data-cell">Name</div>
+										<div class="data-cell">Notes</div>
+									</div>
+									<div class="div-trow">
+										<div class="data-cell">01</div>
+										<div class="data-cell">Pentadol 75mg</div>
+										<div class="data-cell">Keep taking med</div>
+									</div>
+									<div class="div-trow">
+										<div class="data-cell">02</div>
+										<div class="data-cell">Pentadol 75mg</div>
+										<div class="data-cell">You're dead bro</div>
+									</div>
+								</div> -->
+							</div>
+						</div>
+
+						<div class="form-group row button-icon pb-0 mt-3">
+							<div class="col-md-6 offset-md-3 text-center">
+								<button type="submit" class="btn btn-primary ml-auto mr-auto"><i
+										class="fas fa-print"></i>
+									Print Prescription</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- <div class="modal-footer"></div> -->
+		</div>
+	</div>
+
+	<!-- Modal Medical Information Edit -->
+	<div class="modal fade" id="medicalInfoEdit" tabindex="-1" role="dialog" aria-labelledby="medicalInfoEdit"
+		aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered modal-md" role="document">
+			<div class="modal-content">
+				<div class="modal-header text-primary pt-1 pb-1">
+
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="ml-4 mr-4 bg-white rounded">
+								<div class="ml-1 mr-1 p-2 clearfix profile-details">
+									<form action="#" method="POST">
+
+										<div class="row mb-2 text-center">
+											<div class="col-sm-12">
+												<h5 class="pb-3 text-primary">Medical Information</h5>
+											</div>
+										</div>
+
+
+										<div class="form-group row pt-0 pb-0 pl-0 pr-0 ">
+											<label for="height" class="col-sm-4 col-form-label"><b>Height:</b></label>
+											<div class="col-sm-8">
+												<input type="text" class="form-control" id="height" name="height"
+													value="5.7'">
+											</div>
+										</div>
+
+										<div class="form-group row pt-0 pb-0 pl-0 pr-0 ">
+											<label for="weight" class="col-sm-4 col-form-label"><b>Weight:</b></label>
+											<div class="col-sm-8">
+												<input type="text" class="form-control" id="weight" name="weight"
+													value="55 kg">
+											</div>
+										</div>
+
+										<div class="form-group row pt-0 pb-0 pl-0 pr-0 ">
+											<label for="bloodGroup" class="col-sm-4 col-form-label"><b>Blood
+													Group:</b></label>
+											<div class="col-sm-8">
+												<input type="text" class="form-control" id="bloodGroup"
+													name="bloodGroup" value="O+">
+											</div>
+										</div>
+
+										<div class="form-group row pt-0 pb-0 pl-0 pr-0 ">
+											<label for="bloodPressure" class="col-sm-4 col-form-label"><b>Blood
+													Pressure:</b></label>
+											<div class="col-sm-8">
+												<input type="text" class="form-control" id="bloodPressure"
+													name="bloodPressure" value="80/120">
+											</div>
+										</div>
+
+										<div class="form-group row pt-0 pb-0 pl-0 pr-0 ">
+											<label for="pulse" class="col-sm-4 col-form-label"><b>Pulse:</b></label>
+											<div class="col-sm-8">
+												<input type="text" class="form-control" id="pulse" name="pulse"
+													value="70">
+											</div>
+										</div>
+
+										<div class="form-group row pt-0 pb-0 pl-0 pr-0 ">
+											<label for="respiration"
+												class="col-sm-4 col-form-label"><b>Respiration:</b></label>
+											<div class="col-sm-8">
+												<input type="text" class="form-control" id="respiration"
+													name="respiration" value="2332">
+											</div>
+										</div>
+
+										<div class="form-group row pt-0 pb-0 pl-0 pr-0 ">
+											<label for="allergy" class="col-sm-4 col-form-label"><b>Allergy:</b></label>
+											<div class="col-sm-8">
+												<input type="text" class="form-control" id="allergy" name="allergy"
+													value="No">
+											</div>
+										</div>
+
+										<div class="form-group row pt-0 pb-0 pl-0 pr-0 ">
+											<label for="diet" class="col-sm-4 col-form-label"><b>Diet:</b></label>
+											<div class="col-sm-8">
+												<input type="text" class="form-control" id="diet" name="diet"
+													value="No">
+											</div>
+										</div>
+
+										<div class="form-group row button-icon">
+											<div class="col-md-6 offset-md-3 mt-3">
+												<button type="submit" class="btn btn-primary btn-block ml-auto mr-auto">
+													<i class="far fa-save"></i> Save
+												</button>
+											</div>
+										</div>
+									</form>
+
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<!-- <div class="modal-footer"></div> -->
+		</div>
+	</div>
+
+
+	<!-- Modal Appointments List -->
+	<div class="modal fade" id="appointmentList" tabindex="-1" role="dialog" aria-labelledby="appointmentList"
+		aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header text-primary pt-1 pb-2">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<div class="bg-white rounded">
+						<div class="row">
+							<div class="col-6">
+								<h6 class="text-primary">Appointment Lists</h6>
+							</div>
+							<div class="col-6">
+								<span style="color:#A2A2AC;">28 July, 2019</span>
+							</div>
+						</div>
+						<table class="table table-borderless mt-2 table_responsive" id="table">
+							<thead>
+								<tr>
+									<th scope="col">Name</th>
+									<th scope="col">Gender</th>
+									<th scope="col">Schedule</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr class="bg-default">
+									<td><span class="text-primary">Saifullah Al Amin</span></td>
+									<td>Male</td>
+									<td>7:00 pm</td>
+								</tr>
+								<tr class="bg-default">
+									<td><span class="text-primary">Ishmam H. Pranto</span></td>
+									<td>Male</td>
+									<td>7:00 pm</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<!-- <div class="modal-footer"></div> -->
+		</div>
+	</div>
+
+	<!-- Only Patient Profile Modals -->
+
+	<!-- Modal Client Profile Details Edit-->
+	<div class="modal fade" id="clientProfileEdit" tabindex="-1" role="dialog" aria-labelledby="clientProfileEdit"
+		aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered modal-md" role="document">
+			<div class="modal-content">
+				<div class="modal-header text-primary pt-1 pb-1">
+
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="ml-4 mr-4 bg-white rounded">
+								<div class="ml-3 mr-3 p-2 pt-1 clearfix profile-details">
+									<form action="#" method="POST">
+
+										<div class="row mb-2 text-center">
+											<div class="col-sm-12">
+												<div class="profile-wrap">
+													<div class="profile-pic">
+														<img src="assets/img/profile-pic2.jpg" alt="user-img"
+															name="profile-pic" width="100" height="100"
+															class="img-circle">
+													</div>
+													<div class="profile-edit">
+														<i class="fas fa-pencil-alt upload"></i>
+														<input class="file-upload" type="file" accept="image/*" >
+													</div>
+												</div>
+
+												<h6 class="pt-3 pb-3">Saifullah Al Amin</h6>
+											</div>
+										</div>
+
+										<div class="form-group row pt-0 pb-0 pl-0 pr-0 ">
+											<label for="age" class="col-sm-4 col-form-label"><b>Name:</b></label>
+											<div class="col-sm-8">
+												<input type="text" class="form-control" id="name" name="name"
+													value="Saifullah Al Amin">
+											</div>
+										</div>
+
+										<div class="form-group row pt-0 pb-0 pl-0 pr-0 ">
+											<label for="username"
+												class="col-sm-4 col-form-label"><b>Username:</b></label>
+											<div class="col-sm-8">
+												<input type="text" class="form-control" id="username" name="username"
+													value="saifullah">
+											</div>
+										</div>
+
+										<div class="form-group row pt-0 pb-0 pl-0 pr-0 ">
+											<label for="password"
+												class="col-sm-4 col-form-label"><b>Password:</b></label>
+											<div class="col-sm-8">
+												<input type="password" class="form-control" id="password"
+													name="password" value="password">
+											</div>
+										</div>
+
+										<div class="form-group row pt-0 pb-0 pl-0 pr-0 ">
+											<label for="email" class="col-sm-4 col-form-label"><b>Email:</b></label>
+											<div class="col-sm-8">
+												<input type="email" class="form-control" name="email"
+													value="email@gmail.com">
+											</div>
+										</div>
+
+										<div class="form-group row pt-0 pb-0 pl-0 pr-0 ">
+											<label for="age" class="col-sm-4 col-form-label"><b>Age:</b></label>
+											<div class="col-sm-8">
+												<input type="text" class="form-control" id="age" name="age" value="23">
+											</div>
+										</div>
+										<div class="form-group row pt-1 pb-0 mt-2 pl-0 pr-0">
+											<label for="gender" class="col-sm-4 col-form-label"><b>Gender:</b></label>
+											<div class="col-sm-8">
+												<select id="gender" class="select-form-control select_box"
+													name="gender">
+													<option>Select</option>
+													<option value="Male" selected>Male</option>
+													<option value="Female">Female</option>
+												</select>
+											</div>
+										</div>
+										<div class="form-group row pt-0 pb-0 mt-2 pl-0 pr-0">
+											<label for="contact" class="col-sm-4 col-form-label"><b>Contact:</b></label>
+											<div class="col-sm-8">
+												<input type="text" class="form-control"  name="contact"
+													value="+1234567890">
+											</div>
+										</div>
+										<div class="form-group row pt-0 pb-0 mt-2 pl-0 pr-0">
+											<label for="address" class="col-sm-4 col-form-label"><b>Address:</b></label>
+											<div class="col-sm-8">
+												<input type="text" class="form-control"  name="address"
+													value="841, R#13, A#03, Mirpur DOHS, Dhaka.">
+											</div>
+										</div>
+										<div class="form-group row button-icon pb-4">
+											<div class="col-md-6 offset-md-3 mt-3">
+												<button type="submit" class="btn btn-primary btn-block ml-auto mr-auto">
+													<i class="far fa-save"></i> Save
+												</button>
+											</div>
+										</div>
+									</form>
+
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<!-- <div class="modal-footer"></div> -->
+		</div>
+	</div>
+
+	<!-- Modal Patient Profile Medical Information-->
+	<div class="modal fade" id="medicalInformation" tabindex="-1" role="dialog" aria-labelledby="medicalInformation"
+		aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered modal-md" role="document">
+			<div class="modal-content">
+				<div class="modal-header text-primary pt-1 pb-1">
+
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="ml-4 mr-4 bg-white rounded">
+								<div class="clearfix profile-details">
+									<div class="row mb-2 text-center">
+										<div class="col-sm-12">
+											<a href="" class="profile-pic">
+												<img src="assets/img/profile-pic2.jpg" alt="user-img" width="120"
+													class="img-circle">
+												<h6 class="pt-3 pb-3">Hi! Saifullah Al Amin</h6>
+											</a>
+										</div>
+									</div>
+									<div class="row pl-1 pr-1 pt-2 mb-2 bg-default rounded">
+										<div class="col-sm-4">
+											<h6>Height:</h6>
+										</div>
+										<div class="col-sm-8 text-right">
+											<span>5'7"</span>
+										</div>
+									</div>
+									<div class="row pl-1 pr-1 pt-2 mb-2 bg-default rounded">
+										<div class="col-sm-4">
+											<h6>Weight:</h6>
+										</div>
+										<div class="col-sm-8 text-right">
+											<span>55 kg</span>
+										</div>
+									</div>
+									<div class="row pl-1 pr-1 pt-2 mb-2 bg-default rounded">
+										<div class="col-sm-4">
+											<h6>Blood Group:</h6>
+										</div>
+										<div class="col-sm-8 text-right">
+											<span>A+</span>
+										</div>
+									</div>
+									<div class="row pl-1 pr-1 pt-2 mb-2 bg-default rounded">
+										<div class="col-sm-4">
+											<h6>Blood Pressure:</h6>
+										</div>
+										<div class="col-sm-8 text-right">
+											<span>80/120</span>
+										</div>
+									</div>
+									<div class="row pl-1 pr-1 pt-2 mb-2 bg-default rounded">
+										<div class="col-sm-4">
+											<h6>Pulse:</h6>
+										</div>
+										<div class="col-sm-8 text-right">
+											<span>70</span>
+										</div>
+									</div>
+									<div class="row pl-1 pr-1 pt-2 mb-2 bg-default rounded">
+										<div class="col-sm-4">
+											<h6>Respiration:</h6>
+										</div>
+										<div class="col-sm-8 text-right">
+											<span>2332</span>
+										</div>
+									</div>
+
+									<div class="row pl-1 pr-1 pt-2 mb-2 bg-default rounded">
+										<div class="col-sm-4">
+											<h6>Allergy:</h6>
+										</div>
+										<div class="col-sm-8 text-right">
+											<span>No</span>
+										</div>
+									</div>
+
+									<div class="row pl-1 pr-1 pt-2 mb-2 bg-default rounded">
+										<div class="col-sm-4">
+											<h6>Diet:</h6>
+										</div>
+										<div class="col-sm-8 text-right">
+											<span>No</span>
+										</div>
+									</div>
+
+									<div class="row button-icon pt-3 pb-2">
+										<div class="col-md-6 offset-md-3">
+											<a href="#" class="btn btn-primary btn-block ml-auto mr-auto"
+												data-toggle="modal" data-target="#medicalInfoEdit">
+												<i class="fas fa-pencil-alt"></i> Edit
+											</a>
+										</div>
+									</div>
+
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<!-- <div class="modal-footer"></div> -->
+		</div>
+	</div>
+
+	<!-- Modal Patient Profile Appointment list -->
+	<div class="modal fade" id="appointmentListInProfile" tabindex="-1" role="dialog"
+		aria-labelledby="appointmentListInProfile" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered modal-md" role="document">
+			<div class="modal-content">
+				<div class="modal-header text-primary pt-1 pb-1">
+
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="ml-4 mr-4 bg-white rounded">
+								<div class="clearfix profile-details">
+									<div class="row mb-2 text-center">
+										<div class="col-sm-12">
+											<a href="" class="profile-pic">
+												<img src="assets/img/profile-pic2.jpg" alt="user-img" width="120"
+													class="img-circle">
+												<h6 class="pt-3 pb-3">Hi! Saifullah Al Amin</h6>
+											</a>
+										</div>
+									</div>
+									<table class="table table-borderless mt-2 table_responsive" id="table">
+										<thead>
+											<tr>
+												<th scope="col">Sr. No</th>
+												<th scope="col">Time</th>
+												<th scope="col">Date</th>
+												<th scope="col" class="text-center">Prescription</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr class="bg-default">
+												<td>1</td>
+												<td>12:00 PM</td>
+												<td>28 July, 2019</td>
+												<td class="text-center">
+													<!-- <i class="fas fa-plus-circle"></i> -->
+												</td>
+											</tr>
+											<tr class="bg-default">
+												<td>2</td>
+												<td>12:00 PM</td>
+												<td>28 July, 2019</td>
+												<td class="text-center">
+													<a href="#" data-toggle="modal" data-target="#printPrescriptions">
+														<i class="fas fa-eye"></i>
+													</a>
+												</td>
+											</tr>
+											<tr class="bg-default">
+												<td>3</td>
+												<td>12:00 PM</td>
+												<td>28 July, 2019</td>
+												<td class="text-center">
+													<!-- <i class="fas fa-plus-circle"></i> -->
+												</td>
+											</tr>
+											<tr class="bg-default">
+												<td>4</td>
+												<td>12:00 PM</td>
+												<td>28 July, 2019</td>
+												<td class="text-center">
+													<a href="#" data-toggle="modal" data-target="#printPrescriptions">
+														<i class="fas fa-eye"></i>
+													</a>
+												</td>
+											</tr>
+											<tr class="bg-default">
+												<td>5</td>
+												<td>12:00 PM</td>
+												<td>28 July, 2019</td>
+												<td class="text-center">
+													<!-- <i class="fas fa-plus-circle"></i> -->
+												</td>
+											</tr>
+											<tr class="bg-default">
+												<td>6</td>
+												<td>12:00 PM</td>
+												<td>28 July, 2019</td>
+												<td class="text-center">
+													<a href="#" data-toggle="modal" data-target="#printPrescriptions">
+														<i class="fas fa-eye"></i>
+													</a>
+												</td>
+											</tr>
+											<tr class="bg-default">
+												<td>7</td>
+												<td>12:00 PM</td>
+												<td>28 July, 2019</td>
+												<td class="text-center">
+													<!-- <i class="fas fa-plus-circle"></i> -->
+												</td>
+											</tr>
+											<tr class="bg-default">
+												<td>8</td>
+												<td>12:00 PM</td>
+												<td>28 July, 2019</td>
+												<td class="text-center">
+													<a href="#" data-toggle="modal" data-target="#printPrescriptions">
+														<i class="fas fa-eye"></i>
+													</a>
+												</td>
+											</tr>
+											<tr class="bg-default">
+												<td>9</td>
+												<td>12:00 PM</td>
+												<td>28 July, 2019</td>
+												<td class="text-center">
+													<!-- <i class="fas fa-plus-circle"></i> -->
+												</td>
+											</tr>
+											<tr class="bg-default">
+												<td>10</td>
+												<td>12:00 PM</td>
+												<td>28 July, 2019</td>
+												<td class="text-center">
+													<a href="#" data-toggle="modal" data-target="#printPrescriptions">
+														<i class="fas fa-eye"></i>
+													</a>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+									<div class="row button-icon pt-3 pb-2">
+										<div class="col-md-6 offset-md-3">
+											<a href="#" class="btn btn-primary btn-block ml-auto mr-auto"
+												data-toggle="modal" data-target="#medicalInfoEdit">
+												<i class="fas fa-pencil-alt"></i> Edit
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<!-- <div class="modal-footer"></div> -->
+		</div>
+	</div>
+
+	<!-- Modal Patient Profile Prescription list -->
+	<div class="modal fade" id="prescriptionInProfile" tabindex="-1" role="dialog"
+		aria-labelledby="prescriptionInProfile" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered modal-md" role="document">
+			<div class="modal-content">
+				<div class="modal-header text-primary pt-1 pb-1">
+
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="ml-4 mr-4 bg-white rounded">
+								<div class="clearfix profile-details">
+									<div class="row mb-2 text-center">
+										<div class="col-sm-12">
+											<a href="" class="profile-pic">
+												<img src="assets/img/profile-pic2.jpg" alt="user-img" width="120"
+													class="img-circle">
+												<h6 class="pt-3 pb-3">Hi! Saifullah Al Amin</h6>
+											</a>
+										</div>
+									</div>
+									<table class="table table-borderless mt-2 table_responsive" id="table">
+										<thead>
+											<tr>
+												<th scope="col">Sr. No</th>
+												<th scope="col">Date</th>
+												<th scope="col" class="text-center">Option</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr class="bg-default">
+												<td>1</td>
+												<td>28 July, 2019</td>
+												<td class="text-right">
+													<a href="" class="btn btn-primary btn-print" data-toggle="modal"
+														data-target="#printPrescriptions">
+														<i class="fas fa-print"></i> Prescription
+													</a>
+												</td>
+											</tr>
+											<tr class="bg-default">
+												<td>2</td>
+												<td>28 July, 2019</td>
+												<td class="text-right">
+													<a href="" class="btn btn-primary btn-print" data-toggle="modal"
+														data-target="#printPrescriptions">
+														<i class="fas fa-print"></i> Prescription
+													</a>
+												</td>
+											</tr>
+											<tr class="bg-default">
+												<td>3</td>
+												<td>28 July, 2019</td>
+												<td class="text-right">
+													<a href="" class="btn btn-primary btn-print" data-toggle="modal"
+														data-target="#printPrescriptions">
+														<i class="fas fa-print"></i> Prescription
+													</a>
+												</td>
+											</tr>
+											<tr class="bg-default">
+												<td>4</td>
+												<td>28 July, 2019</td>
+												<td class="text-right">
+													<a href="" class="btn btn-primary btn-print" data-toggle="modal"
+														data-target="#printPrescriptions">
+														<i class="fas fa-print"></i> Prescription
+													</a>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+									<div class="row button-icon pt-3 pb-2">
+										<div class="col-md-6 offset-md-3">
+											<a href="#" class="btn btn-primary btn-block ml-auto mr-auto"
+												data-toggle="modal" data-target="#medicalInfoEdit">
+												<i class="fas fa-pencil-alt"></i> Edit
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<!-- <div class="modal-footer"></div> -->
+		</div>
+	</div>
+
+
+	<!-- Edit Appointment-->
+	<div class="modal fade" id="appointmentEditActionModal" tabindex="-1" role="dialog"
+		aria-labelledby="appointmentEditActionModal" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content p-3">
+				<div class="modal-header text-primary pt-2 pb-4">
+					<h6 class="modal-title">Edit Appointment</h6>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<form class="form" action="#" method="POST">
+						<div class="row">
+							<div class="col-md-12">
+								<div class="form-group p-0">
+									<label for="Name">Action</label>
+									<select class="select-form-control select_box mb-2">
+										<option value="">Select</option>
+										<option value="">Approve</option>
+										<option value="">Cancel</option>
+										<option value="">Delete</option>
+									</select>
+								</div>
+
+								<div class="form-group p-0">
+									<label for="Name">Remark</label>
+									<select class="select-form-control select_box mb-2">
+										<option value="">Select</option>
+										<option value="">Visited</option>
+										<option value="">Not visited</option>
+									</select>
+								</div>
+
+								<div class="form-group p-0 date-field">
+									<label for="date">Date</label>
+									<div id="datePicker2" class="input-group date input-group-append-custom"
+										data-date-format="dd MM yyyy">
+										<input class="form-control" type="text" readonly >
+										<span class="input-group-addon"><i class="icon-calendar"></i></span>
+									</div>
+								</div>
+
+								<div class="form-group p-0">
+									<label for="time">Time</label>
+									<div class="input-group bootstrap-timepicker input-group-append-custom">
+										<input id="timePicker2" type="text" class="form-control input-small">
+										<span class="input-group-addon"><i class="far fa-clock"></i></span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="form-group row button-icon pb-0">
+							<div class="col-md-6 offset-md-3">
+								<button type="submit" class="btn btn-primary btn-block ml-auto mr-auto">Update</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+			<!-- <div class="modal-footer"></div> -->
+		</div>
+	</div><!-- Script -->
+	<script src="assets/vandor/jquery-3.2.1/jquery.3.2.1.min.js"></script>
+	<script src="assets/vandor/jquery-ui-1.12.1/jquery-ui.min.js"></script>
+	<script src="assets/vandor/popper/popper.min.js"></script>
+	<script src="assets/vandor/bootstrap-4.1.1/js/bootstrap.min.js"></script>
+	<script src="assets/vandor/moment/moment.min.js"></script>
+	<script src="assets/vandor/dropzone/dropzone.js"></script>
+	<script src="assets/vandor/dropzone/dropzone-amd-module.js"></script>
+	<!-- <script src="assets/vandor/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script> -->
+	<script src="assets/vandor/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+	<script src="assets/vandor/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
+	<script src="assets/vandor/fullcalendar-3.10.0/fullcalendar.js"></script>
+	<!-- <script src="assets/js/plugin/bootstrap-notify/bootstrap-notify.min.js"></script> -->
+	<script src="assets/vandor/bootstrap-toggle/bootstrap-toggle.min.js"></script>
+	<script src="assets/vandor/jquery-mapael/jquery.mapael.min.js"></script>
+	<script src="assets/vandor/jquery-scrollbar/jquery.scrollbar.min.js"></script>
+	<script src="assets/js/script.min.js"></script>
+	<script src="assets/js/circlemenu.js"></script>
+	<script type="text/javascript">
+
+		$(function () {
+
+			// Current Time
+			var getCurrentTime = new Date();
+			var getTime = getCurrentTime.getHours() + ":" + getCurrentTime.getMinutes();
+
+			$('#timePicker1').timepicker({
+				defaultTime: getTime
+			});
+
+			$('#timePicker2').timepicker({
+				defaultTime: getTime
+			});
+
+			//var date = new Date();
+			// date.setDate(date.getDate());
+
+			$('#datePicker1').datepicker({
+				format: 'dd MM yyyy',
+				autoclose: true,
+				startDate: new Date()
+			});
+
+			$('#datePicker2').datepicker({
+				format: 'dd MM yyyy',
+				autoclose: true,
+				startDate: new Date()
+			});
+
+			// $("#datePicker1").datetimepicker({
+			// 	format: "dd MM yyyy",
+			// 	minView: 2,
+			// 	autoclose: true,
+			// 	todayBtn: true
+			// });
+
+			// $("#timePicker1").datetimepicker({
+			// 	pickDate: false,
+			// 	minuteStep: 15,
+			// 	pickerPosition: 'bottom-right',
+			// 	format: 'HH:ii p',
+			// 	autoclose: true,
+			// 	showMeridian: true,
+			// 	startView: 1,
+			// 	maxView: 1,
+			// });
+
+			// $("#datePicker2").datetimepicker({
+			// 	format: "dd MM yyyy",
+			// 	minView: 2,
+			// 	autoclose: true,
+			// 	todayBtn: true
+			// });
+
+			// $("#timePicker2").datetimepicker({
+			// 	pickDate: false,
+			// 	minuteStep: 15,
+			// 	pickerPosition: 'bottom-right',
+			// 	format: 'HH:ii p',
+			// 	autoclose: true,
+			// 	showMeridian: true,
+			// 	startView: 1,
+			// 	maxView: 1,
+			// });
+
+			// $('#datetimepicker12').datetimepicker({
+			// 	inline: true,
+			// 	minView: 2,
+			// 	sideBySide: true,
+			// 	// todayBtn: true
+			// });
+
+			$('#calendar').fullCalendar({
+				editable: true,
+				eventLimit: true,
+				selectable: true,
+				navLinks: true,
+				navLinkDayClick: function (date, jsEvent) {
+					//alert('Clicked ' + date.format());
+				},
+				dayClick: function (date, jsEvent, view) {
+					//alert('Clicked on: ' + date.format());
+				}
+			});
+		});
+
+		$(function () {
+			var getURL = function (input) {
+				if (input.files && input.files[0]) {
+					var reader = new FileReader();
+					reader.onload = function (e) {
+						$('.img-circle').attr('src', e.target.result);
+					}
+					reader.readAsDataURL(input.files[0]);
+				}
+			}
+			$(".file-upload").on('change', function () {
+				getURL(this);
+			});
+
+			$(".upload").on('click', function () {
+				$(".file-upload").click();
+			});
+		});
+	</script>
+	<script>
+		var el = '.js-menu';
+		var myMenu = cssCircleMenu(el);
+	</script>
+	<script>
+		$(document).ready(function () {
+			//$('.submint-btn').css("display", "none");
+			$('.editBtn').click(function () {
+
+				if ($('.editField').is('[readonly]')) {
+					$('.editField').prop('readonly', false);
+					$('.editBtn').html('<i class="fas fa-times"></i> Cancel');
+					$('.editField').addClass("form-control pt-1 pb-1");
+					$('.editField').removeClass("form-control-plaintext");
+					$('.edit').addClass('col-md-6');
+					$('.edit').removeClass('col-md-12');
+					$('.editBtn').addClass("btn-danger");
+					$('.editBtn').removeClass("btn-default btn-block");
+					$('.submit-btn').css("display", "block");
+				} else {
+					$('.editField').prop('readonly', true);
+					$('.editBtn').html('<i class="fas fa-pencil-alt"></i> Edit');
+					$('.submit-btn').css("display", "none");
+					$('.editBtn').addClass("btn-default btn-block");
+					$('.editBtn').removeClass("btn-danger");
+					$('.editField').addClass("form-control-plaintext");
+					$('.editField').removeClass("form-control");
+					$('.edit').addClass('col-md-12');
+					$('.edit').removeClass('col-md-6');
+				}
+			});
+
+
+		});
+	</script>
+</body>
+
+</html>
