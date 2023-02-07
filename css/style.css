@@ -9,14 +9,27 @@ html {
 }
 
 body {
-	color: #343434;
+	color: #202020;
 	margin: 0;
 	padding: 0;
 	font-family: 'Montserrat', sans-serif;
 	font-size: 15px;
 	line-height: 1.5;
-    background: rgb(245,244,238);
-    background: linear-gradient(294deg, rgba(245,244,238,1) 0%, rgba(239,239,235,1) 35%, rgba(240,239,225,1) 100%); 
+    background: linear-gradient(296deg,#f7f1cf,#f9f8da,#efdd82);
+    background-size: 180% 180%;
+    animation: gradient-animation 18s ease infinite;
+      
+}
+@keyframes gradient-animation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
 }
 
 img {
@@ -34,7 +47,7 @@ h1 {
     max-width: 960px;
     width: 85%;
     margin: 0 auto;
-    padding: 60px 0;
+    padding: 30px 0;
 }
 
 
