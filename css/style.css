@@ -64,6 +64,18 @@ header {
 .container {
   margin: 0 auto;
   padding: 2em;
+  width: 100%;
+}
+
+.centered {
+  margin-inline: auto;
+  width: 70vw;
+}
+
+@media screen and (max-width: 768px) {
+  .centered {
+    width: 100%;
+  }
 }
 
 /* Navigation Bar Styles */
@@ -102,20 +114,6 @@ header {
     background-position: -200% center;
   }
 }
-
-@media screen and (max-width: 60em) {
-  .nav-bar {
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-  }
-}
-
-/*@media screen and (max-width: 30em) {
-  .nav-bar {
-    justify-content: space-between;
-  }
-}*/
 
 /* Menu Styles */
 .menu ul * {
@@ -159,7 +157,7 @@ header {
   opacity: 1;
 }
 
-@media screen and (min-width: 30em) {
+@media screen and (min-width: 769px) {
   .menu ul {
     display: flex;
     flex-wrap: wrap;
@@ -174,7 +172,83 @@ header {
   .menu li a {
     padding: .5em 1em;
   }
+  .overlay {
+    display: none;
+  }
 }
+
+@media screen and (max-width: 768px) {
+  .menu {
+    display: none;
+  }
+  .hamburger-menu {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    z-index: 100;
+    transition: all 0.35s ease;
+  }
+
+  .hamburger-menu span {
+    width: 40px;
+    height: 5px;
+    background: #000;
+    margin: 2px auto;
+  }
+
+  .hamburger-menu:hover .bar {
+    background-color: var(--theme-color);
+  }
+
+  .hamburger-menu.active span:nth-of-type(1) {
+    transform: translateY(11px) translateX(0) rotate(45deg);
+    background: var(--default-color);
+  }
+
+  .hamburger-menu.active span:nth-of-type(2) {
+    opacity: 0;
+    background: var(--default-color);
+  }
+
+  .hamburger-menu.active span:nth-of-type(3) {
+    transform: translateY(-8px) translateX(0) rotate(-45deg);
+    background: var(--default-color);
+  }
+
+  .overlay {
+    position: fixed;
+    background-color:aliceblue;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.35s, visibility 0.35s, height 0.35s;
+    overflow: hidden;
+  }
+  .overlay.open {
+    opacity: 0.9;
+    visibility: visible;
+    height: 100%;
+    z-index: 1;
+  }
+  .overlay-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 6em;
+    text-transform: uppercase;
+  }
+  .overlay-menu li {
+    padding: 2em 0;
+  }
+  .overlay-menu a {
+    color: var(--default-color);
+    font-size: 2em;
+  }
+}
+
 
 /*
 Home page
@@ -188,15 +262,15 @@ Home page
   margin: 2em auto;
 }
 
-@media screen and (min-width: 60em) {
-	.banner {
-		width: 60vw;
-	}
+/* Landscape and bigger*/
+@media screen and (min-width: 769px) {
   .banner .profile {
     flex: 1 0 calc(33% - .5em);
   }
 }
-@media screen and (max-width: 60em) {
+
+/* Portrait */
+@media screen and (max-width: 768px) {
   .banner .profile {
     flex: 1 0 100%;
   }
@@ -247,8 +321,6 @@ Home page
   align-items: center;
   margin-top: 5em;
 }
-
-
 
 .banner .card li {
   margin-inline: 5px;
@@ -324,24 +396,38 @@ Page content
   font-weight: 900;
   margin-block: .5em;
 }
-.content h1 {
-	font-size: 5em;
-  font-weight: 900;
-  margin-block: .5em;
-}
-
 .content h1 a:after {
 	content: '';
   background: url('../image/icon-download.png') 0% / cover no-repeat padding-box;
   display: inline-block;
   width: 40px; 
 	height: 50px;
- 	margin-left: .05em;
 }
 
 .content h1::first-letter {
   color: var(--theme-color);
   transition: all 0.35s ease;
+}
+
+@media screen and (max-width: 768px) {
+  .content h1 {
+    font-size: 4em;
+  }
+  .content h1 a:after {
+    width: 35px; 
+	  height: 45px;
+  }
+}
+
+/* iPhone */
+@media screen and (max-width: 391px) {
+  .content h1 {
+    font-size: 3em;
+  }
+  .content h1 a:after {
+    width: 35px; 
+	  height: 40px;
+  }
 }
 
 .resume section,
@@ -406,13 +492,6 @@ Resume page
   width: 16px;
   height: 16px;
  	margin-right: .3em;
-}
-
-@media screen and (min-width: 60em) {
-	.resume .container,
-	.projects .container {
-		width: 70vw;
-	}
 }
 
 .resume article > h3 {
@@ -484,8 +563,8 @@ Projects page
   filter: grayscale(0);
 }
 
-/* Media query for larger screens */
-@media screen and (min-width: 45em) {
+/* Landscape */
+@media screen and (min-width: 769px) {
     .project-list .project-item div {
         flex: 1 0 calc(100% - 50%);
     }
@@ -510,7 +589,7 @@ Projects page
 	position: absolute;
 }
 
-@media screen and (max-width: 45em) {
+@media screen and (max-width: 768px) {
    .project-list .project-item .project-content {
    	order: 2;
    }
@@ -523,9 +602,7 @@ footer {
 }
 
 .information {
-  width: 60vw;
   padding: 2em 0;
-  margin-inline: auto;
 }
 
 .information li {
@@ -537,7 +614,7 @@ footer {
   margin-top: 1em;
 }
 
-@media screen and (min-width: 35em) {
+@media screen and (min-width: 769px) {
   .information {
     display: flex;
     justify-content: space-between;
