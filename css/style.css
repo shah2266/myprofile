@@ -354,12 +354,17 @@ Home page
   object-fit: cover;
   object-position: 50% 25%;
   filter: grayscale(100%);
+  transition: all 0.35s ease;
 }
 
 @media screen and (min-width: 768px) {
   .banner .content {
     padding: 2em;
   }
+}
+
+.card:hover .profile-image .ratio-box img {
+  filter: grayscale(0);
 }
 
 .banner .content p {
